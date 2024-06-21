@@ -172,6 +172,11 @@ app.post('/download-and-send', async (req, res) => {
             }
         });
 
+        const downloadsDir = path.join(__dirname, 'downloads');
+        if (!fs.existsSync(downloadsDir)) {
+            fs.mkdirSync(downloadsDir);
+        }
+        
         // Guarda el archivo descargado temporalmente
         const filePath = path.join(__dirname, 'downloads', fileName);
         fs.writeFileSync(filePath, response.data);
