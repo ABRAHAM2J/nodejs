@@ -1,0 +1,12 @@
+version: '3'
+services:
+  app:
+    build: .
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - ./downloads:/usr/src/app/downloads
+      - ./uploads:/usr/src/app/uploads
+      - ./certs:/usr/src/app/certs
+    ports:
+      - "3000:3000"

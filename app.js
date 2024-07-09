@@ -4,8 +4,9 @@ const axios = require('axios');
 const { google } = require('googleapis');
 const fs = require('fs');
 const path = require('path');
+const https = require('https');
 
-const app = express();
+const app = express(); 
 app.use(cors());
 app.use(express.json()); // Para parsear JSON
 
@@ -213,6 +214,13 @@ app.post('/download-and-send', async (req, res) => {
 });
 
 const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//     console.log(`Server running on http://localhost:${PORT}`);
+// });
+https.createServer({
+    cert: fs.readFileSync('./certs/server.cer'),
+    key: fs.readFileSync('./certs/server.key')
+  },app).listen(PORT, function(){
+     console.log('Servidor https correindo en el puerto 3000');
+ });
+ 
