@@ -86,7 +86,7 @@ app.get('/share/:fileId', async (req, res) => {
         await drive.permissions.create({
             fileId: req.params.fileId,
             requestBody: {
-                role: 'reader',
+                role: 'writer',
                 type: 'anyone',
             },
         });

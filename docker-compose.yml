@@ -3,10 +3,10 @@ services:
   app:
     build: .
     volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-      - ./downloads:/usr/src/app/downloads
-      - ./uploads:/usr/src/app/uploads
-      - ./certs:/usr/src/app/certs
+      - .:/app
+      - /app/node_modules
+      - ./downloads:/app/downloads
+      - ./uploads:/app/uploads
+      - ./certs:/app/certs
     ports:
       - "3000:3000"
