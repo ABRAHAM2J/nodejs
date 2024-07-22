@@ -214,13 +214,13 @@ app.post('/download-and-send', async (req, res) => {
 });
 
 const PORT = 3000;
-// app.listen(PORT, () => {
-//     console.log(`Server running on http://localhost:${PORT}`);
-// });
-https.createServer({
-    cert: fs.readFileSync('./certs/server.cer'),
-    key: fs.readFileSync('./certs/server.key')
-  },app).listen(PORT, function(){
-     console.log('Servidor https correindo en el puerto 3000');
- });
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
+// https.createServer({
+//     cert: fs.readFileSync('./certs/server.cer'),
+//     key: fs.readFileSync('./certs/server.key')
+//   },app).listen(PORT, function(){
+//      console.log('Servidor https correindo en el puerto 3000');
+//  });
  
